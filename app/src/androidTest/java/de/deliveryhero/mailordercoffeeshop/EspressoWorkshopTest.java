@@ -33,7 +33,7 @@ import static org.hamcrest.Matchers.allOf;
 public class EspressoWorkshopTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule < MainActivity > mActivityTestRule = new ActivityTestRule < > (MainActivity.class);
 
     @Test
     public void espressoWorkShopTask() {
@@ -136,10 +136,10 @@ public class EspressoWorkshopTest {
         materialButton2.perform(scrollTo(), click());
     }
 
-    private static Matcher<View> childAtPosition(
-            final Matcher<View> parentMatcher, final int position) {
+    private static Matcher < View > childAtPosition(
+            final Matcher < View > parentMatcher, final int position) {
 
-        return new TypeSafeMatcher<View>() {
+        return new TypeSafeMatcher < View > () {
             @Override
             public void describeTo(Description description) {
                 description.appendText("Child at position " + position + " in parent ");
@@ -149,8 +149,8 @@ public class EspressoWorkshopTest {
             @Override
             public boolean matchesSafely(View view) {
                 ViewParent parent = view.getParent();
-                return parent instanceof ViewGroup && parentMatcher.matches(parent)
-                        && view.equals(((ViewGroup) parent).getChildAt(position));
+                return parent instanceof ViewGroup && parentMatcher.matches(parent) &&
+                        view.equals(((ViewGroup) parent).getChildAt(position));
             }
         };
     }
