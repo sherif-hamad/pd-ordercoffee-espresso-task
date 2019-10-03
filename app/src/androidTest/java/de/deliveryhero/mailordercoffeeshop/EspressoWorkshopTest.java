@@ -37,6 +37,10 @@ public class EspressoWorkshopTest {
 
     @Test
     public void espressoWorkShopTask() {
+
+
+
+       //Assertion here to make sure that close button exists
         ViewInteraction imageButton = onView(
                 allOf(withId(R.id.close_button),
                         childAtPosition(
@@ -47,6 +51,9 @@ public class EspressoWorkshopTest {
                         isDisplayed()));
         imageButton.check(matches(isDisplayed()));
 
+
+
+        //Click the close button on introduction page
         ViewInteraction appCompatImageButton = onView(
                 allOf(withId(R.id.close_button),
                         childAtPosition(
@@ -57,6 +64,8 @@ public class EspressoWorkshopTest {
                         isDisplayed()));
         appCompatImageButton.perform(click());
 
+
+        //Make sure that Menu button exists
         ViewInteraction button = onView(
                 allOf(withId(R.id.use_menu),
                         childAtPosition(
@@ -68,6 +77,8 @@ public class EspressoWorkshopTest {
                         isDisplayed()));
         button.check(matches(isDisplayed()));
 
+
+        //Click on menu button
         ViewInteraction materialButton = onView(
                 allOf(withId(R.id.use_menu), withText("Menu"),
                         childAtPosition(
@@ -80,7 +91,7 @@ public class EspressoWorkshopTest {
         materialButton.perform(click());
 
 
-
+        //Select Cappuccino as my beverage
         ViewInteraction constraintLayout = onView(
                 allOf(childAtPosition(
                         allOf(withId(R.id.beverage_recycler_view),
@@ -91,6 +102,8 @@ public class EspressoWorkshopTest {
                         isDisplayed()));
         constraintLayout.perform(click());
 
+
+        //Input my First name as "Sherif"
         ViewInteraction textInputEditText = onView(
                 allOf(withId(R.id.name_text_box),
                         childAtPosition(
@@ -101,6 +114,8 @@ public class EspressoWorkshopTest {
                         isDisplayed()));
         textInputEditText.perform(replaceText("sherif"), closeSoftKeyboard());
 
+
+        //Input my Email as sherif.hamad@live.com
         ViewInteraction textInputEditText2 = onView(
                 allOf(withId(R.id.email_text_box),
                         childAtPosition(
@@ -111,6 +126,7 @@ public class EspressoWorkshopTest {
                         isDisplayed()));
         textInputEditText2.perform(replaceText("sherif.hamad@live.com"), closeSoftKeyboard());
 
+        //Click on Submit order
         ViewInteraction materialButton2 = onView(
                 allOf(withId(R.id.mail_order_button), withText("Submit order"),
                         childAtPosition(
