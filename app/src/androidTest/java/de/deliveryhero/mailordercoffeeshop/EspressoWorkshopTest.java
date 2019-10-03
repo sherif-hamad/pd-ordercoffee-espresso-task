@@ -40,52 +40,22 @@ public class EspressoWorkshopTest {
 
 
         //Assertion here to make sure that close button exists
-        ViewInteraction introductionPageCloseButton = onView(
-                allOf(withId(R.id.close_button),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(android.R.id.content),
-                                        0),
-                                1),
-                        isDisplayed()));
+        ViewInteraction introductionPageCloseButton = onView(allOf(withId(R.id.close_button)));
         introductionPageCloseButton.check(matches(isDisplayed()));
 
 
         //Click the close button on introduction page
-        ViewInteraction appCompatImageButton = onView(
-                allOf(withId(R.id.close_button),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(android.R.id.content),
-                                        0),
-                                1),
-                        isDisplayed()));
+        ViewInteraction appCompatImageButton = onView(allOf(withId(R.id.close_button)));
         appCompatImageButton.perform(click());
 
 
         //Make sure that Menu button exists
-        ViewInteraction menuButton = onView(
-                allOf(withId(R.id.use_menu),
-                        childAtPosition(
-                                allOf(withId(R.id.header_container),
-                                        childAtPosition(
-                                                withId(R.id.header_fragment_container),
-                                                0)),
-                                1),
-                        isDisplayed()));
+        ViewInteraction menuButton = onView(allOf(withId(R.id.use_menu)));
         menuButton.check(matches(isDisplayed()));
 
 
         //Click on menu button
-        ViewInteraction materialButton = onView(
-                allOf(withId(R.id.use_menu), withText("Menu"),
-                        childAtPosition(
-                                allOf(withId(R.id.header_container),
-                                        childAtPosition(
-                                                withId(R.id.header_fragment_container),
-                                                0)),
-                                1),
-                        isDisplayed()));
+        ViewInteraction materialButton = onView(allOf(withId(R.id.use_menu), withText("Menu")));
         materialButton.perform(click());
 
 
@@ -102,37 +72,16 @@ public class EspressoWorkshopTest {
 
 
         //Input my First name as "Sherif"
-        ViewInteraction textInputEditText = onView(
-                allOf(withId(R.id.name_text_box),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.name_input_layout),
-                                        0),
-                                0),
-                        isDisplayed()));
+        ViewInteraction textInputEditText = onView(allOf(withId(R.id.name_text_box)));
         textInputEditText.perform(replaceText("sherif"), closeSoftKeyboard());
 
 
-        //Input my Email as sherif.hamad@live.com
-        ViewInteraction textInputEditText2 = onView(
-                allOf(withId(R.id.email_text_box),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.email_input_layout),
-                                        0),
-                                0),
-                        isDisplayed()));
+        //Input my Email as sherif.hamad@live.com, I didn't check entry of wrong format
+        ViewInteraction textInputEditText2 = onView(allOf(withId(R.id.email_text_box)));
         textInputEditText2.perform(replaceText("sherif.hamad@live.com"), closeSoftKeyboard());
 
         //Click on Submit order
-        ViewInteraction materialButton2 = onView(
-                allOf(withId(R.id.mail_order_button), withText("Submit order"),
-                        childAtPosition(
-                                allOf(withId(R.id.beverage_detail_container),
-                                        childAtPosition(
-                                                withId(R.id.scrollview),
-                                                0)),
-                                3)));
+        ViewInteraction materialButton2 = onView(allOf(withId(R.id.mail_order_button), withText("Submit order")));
         materialButton2.perform(scrollTo(), click());
     }
 
