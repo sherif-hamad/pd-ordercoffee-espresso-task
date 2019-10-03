@@ -40,17 +40,17 @@ public class EspressoWorkshopTest {
 
 
         //Assertion here to make sure that close button exists
-        ViewInteraction introductionPageCloseButton = onView(allOf(withId(R.id.close_button)));
+        ViewInteraction introductionPageCloseButton = onView((withId(R.id.close_button)));
         introductionPageCloseButton.check(matches(isDisplayed()));
 
 
         //Click the close button on introduction page
-        ViewInteraction appCompatImageButton = onView(allOf(withId(R.id.close_button)));
+        ViewInteraction appCompatImageButton = onView((withId(R.id.close_button)));
         appCompatImageButton.perform(click());
 
 
         //Make sure that Menu button exists
-        ViewInteraction menuButton = onView(allOf(withId(R.id.use_menu)));
+        ViewInteraction menuButton = onView((withId(R.id.use_menu)));
         menuButton.check(matches(isDisplayed()));
 
 
@@ -72,12 +72,12 @@ public class EspressoWorkshopTest {
 
 
         //Input my First name as "Sherif"
-        ViewInteraction textInputEditText = onView(allOf(withId(R.id.name_text_box)));
+        ViewInteraction textInputEditText = onView((withId(R.id.name_text_box)));
         textInputEditText.perform(replaceText("sherif"), closeSoftKeyboard());
 
 
         //Input my Email as sherif.hamad@live.com, I didn't check entry of wrong format
-        ViewInteraction textInputEditText2 = onView(allOf(withId(R.id.email_text_box)));
+        ViewInteraction textInputEditText2 = onView((withId(R.id.email_text_box)));
         textInputEditText2.perform(replaceText("sherif.hamad@live.com"), closeSoftKeyboard());
 
         //Click on Submit order
