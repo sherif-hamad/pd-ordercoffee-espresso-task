@@ -39,9 +39,8 @@ public class EspressoWorkshopTest {
     public void espressoWorkShopTask() {
 
 
-
-       //Assertion here to make sure that close button exists
-        ViewInteraction imageButton = onView(
+        //Assertion here to make sure that close button exists
+        ViewInteraction introductionPageCloseButton = onView(
                 allOf(withId(R.id.close_button),
                         childAtPosition(
                                 childAtPosition(
@@ -49,8 +48,7 @@ public class EspressoWorkshopTest {
                                         0),
                                 1),
                         isDisplayed()));
-        imageButton.check(matches(isDisplayed()));
-
+        introductionPageCloseButton.check(matches(isDisplayed()));
 
 
         //Click the close button on introduction page
@@ -66,7 +64,7 @@ public class EspressoWorkshopTest {
 
 
         //Make sure that Menu button exists
-        ViewInteraction button = onView(
+        ViewInteraction menuButton = onView(
                 allOf(withId(R.id.use_menu),
                         childAtPosition(
                                 allOf(withId(R.id.header_container),
@@ -75,7 +73,7 @@ public class EspressoWorkshopTest {
                                                 0)),
                                 1),
                         isDisplayed()));
-        button.check(matches(isDisplayed()));
+        menuButton.check(matches(isDisplayed()));
 
 
         //Click on menu button
