@@ -89,7 +89,7 @@ public class EspressoWorkshopTest {
 
 
         //Input my Email as sherif.hamad@live.com, I didn't check entry of wrong format
-        ViewInteraction emailTextBox = onView(allOf(withId(R.id.email_text_box)));
+        ViewInteraction emailTextBox = onView((withId(R.id.email_text_box)));
         emailTextBox.perform(replaceText("sherif.hamad@live.com"), closeSoftKeyboard());
 
         //Click on Submit order
