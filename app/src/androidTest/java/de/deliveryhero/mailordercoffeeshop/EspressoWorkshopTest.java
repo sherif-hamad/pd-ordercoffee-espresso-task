@@ -89,15 +89,15 @@ public class EspressoWorkshopTest {
 
 
         //Input my Email as sherif.hamad@live.com, I didn't check entry of wrong format
-        ViewInteraction textInputEditText2 = onView(allOf(withId(R.id.email_text_box)));
-        textInputEditText2.perform(replaceText("sherif.hamad@live.com"), closeSoftKeyboard());
+        ViewInteraction emailTextBox = onView(allOf(withId(R.id.email_text_box)));
+        emailTextBox.perform(replaceText("sherif.hamad@live.com"), closeSoftKeyboard());
 
         //Click on Submit order
-        ViewInteraction materialButton2 = onView(allOf(withId(R.id.mail_order_button), withText("Submit order")));
-        materialButton2.perform(scrollTo(), click());
+        ViewInteraction submitOrder = onView(allOf(withId(R.id.mail_order_button), withText("Submit order")));
+        submitOrder.perform(scrollTo(), click());
     }
 
-    //Define Matcher to be used
+    //Define Matcher to be used with items search
     private static Matcher < View > childAtPosition(
             final Matcher < View > parentMatcher, final int position) {
 
