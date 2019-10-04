@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 
 import androidx.test.espresso.ViewInteraction;
+import androidx.test.espresso.action.ViewActions;
+import androidx.test.espresso.contrib.RecyclerViewActions;
+import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
@@ -59,16 +62,25 @@ public class EspressoWorkshopTest {
         materialButton.perform(click());
 
 
+
+
         //Select Cappuccino as my beverage
+        //This part is complex as the cappuccino option is in recycler view and not visible, so we need to scroll to it first
+        //Then we can call it by its position
+        onView(withId(R.id.beverage_recycler_view)).perform(RecyclerViewActions.scrollToPosition(13));//scroll to make cappuccino visible
+
+        //Click on cappuccino
         ViewInteraction constraintLayout = onView(
                 allOf(childAtPosition(
                         allOf(withId(R.id.beverage_recycler_view),
                                 childAtPosition(
                                         withId(R.id.order_fragment_container),
                                         0)),
-                        2),
+                        1),
                         isDisplayed()));
         constraintLayout.perform(click());
+
+
 
 
         //Input my First name as "Sherif"
@@ -77,7 +89,7 @@ public class EspressoWorkshopTest {
 
 
         //Input my Email as sherif.hamad@live.com, I didn't check entry of wrong format
-        ViewInteraction textInputEditText2 = onView((withId(R.id.email_text_box)));
+        ViewInteraction textInputEditText2 = onView(allOf(withId(R.id.email_text_box)));
         textInputEditText2.perform(replaceText("sherif.hamad@live.com"), closeSoftKeyboard());
 
         //Click on Submit order
@@ -85,6 +97,7 @@ public class EspressoWorkshopTest {
         materialButton2.perform(scrollTo(), click());
     }
 
+    //Define Matcher to be used
     private static Matcher < View > childAtPosition(
             final Matcher < View > parentMatcher, final int position) {
 
